@@ -1,0 +1,104 @@
+.navbar {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //font-size: 1.2rem;
+    font-family: var(--headers-font);
+    background-color: var(--theme-nav-background-color);
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 80px;            
+        padding: 0px 30px;
+
+        &__logo {
+            color: var(--theme-sub-text-color);
+            cursor: pointer;
+            font-size: 2rem;
+            flex-grow: 1;
+        }
+
+        &__menu {
+            display: flex;
+            /* Make the menu element use all of the available margin on the left */
+            margin-left: auto;
+            /* Don't display bullet points */
+            list-style: none;
+            text-align: center;
+
+            &__item {
+                line-height: 40px;
+                margin-right: 1.5rem;
+                font-size: 1.6rem;
+                list-style-type: none;          
+
+                &::after {
+                    content: "";
+                    height: 3px;
+                    width: 0px;
+                    background: transparent;
+                    transition: width 0.5s ease;
+                }
+
+                &::hover::after {
+                    width: 100%;
+                    background: var(--theme-sub-text-color);
+                }
+
+                &__link {
+                    color: var(--theme-sub-text-color);
+                    text-decoration: none;
+                    padding: 0.5rem 1rem;
+
+                    &.active {
+                      color: var(--theme-pressed-link-color);
+                    }
+                }
+
+                &__item:last-child {
+                    margin: 0px;
+                }
+            }
+        }
+    }
+}
+
+.nav-icon {
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        opacity: 0.9;
+    }
+
+    .navbar__container__menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: -110%;
+        /* It does not work as is it relative to parents value and is multiplied with it
+        opacity: 1; */
+        transition: all 0.5s ease;
+
+        &.active {
+            background: var(--theme-nav-background-color);
+            left: 0px;
+            z-index: 1;
+            transition: all 0.5s ease;
+        }
+    }
+
+    .nav-icon {
+        display: block;
+        cursor: pointer;
+        color: var(--theme-sub-text-color);
+    }
+}

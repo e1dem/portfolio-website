@@ -1,0 +1,25 @@
+.portfolio {
+  width: 100%;
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    // W/o it aspect-ratio doesn't work
+    //align-items: flex-start;    
+    row-gap: 10px;
+    column-gap: 1%;
+
+    // A quick fix to avoid one or two items in the last row
+    // to grow to fill all space in the row available.
+    &::after {
+      content: "";
+      flex-grow: 999;
+    }
+  } 
+}
+
+.active-piece {
+  min-width: 500px;
+  max-height: 100%;
+  max-width: 100%;
+}

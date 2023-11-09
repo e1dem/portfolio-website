@@ -1,0 +1,21 @@
+[dev]
+  #command="npm run dev"
+  targetPort=8080
+
+#[build]
+  # If missing functions causes "TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received undefined" while using netlify-lambda
+  # functions = "functions-build"
+
+[functions]
+  # We are going to use ES modules so we need esbuild to transpile the code.
+  # TypeScript functions always use esbuild
+  node_bundler = "esbuild"
+  # Sets a custom directory for Netlify Functions
+  directory = "netlify/express/"
+  included_files = ["netlify/express/*"]
+
+[[redirects]]
+  from = "/api/*"
+  # to = "/.netlify/functions/server/:splat"
+  to = "/.netlify/functions/server/:splat"
+  status = 200    

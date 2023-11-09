@@ -1,0 +1,15 @@
+.socials-buttons {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 10px;
+
+  a {
+    cursor: pointer;
+    color: var(--theme-sub-text-color);
+  }
+
+  svg {
+    color: var(--theme-sub-text-color);
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+/* In the html element, it is the best practice to define only the font style as
+   other properties (such as background color, for example) will be overriden
+   */
+html {
+  /* TODO: to play around: why it doesnt work in body */
+  font-size: 90%;
+  line-height: 150%;
+  height: 100%;
+}
+
+body {
+  background: var(--theme-background-color);
+  height: 100%;
+  /*font-family: 'Chelsea Market', sans-serif;*/
+  font-family: var(--regular-text-font);
+ /* font-family: 'Neucha', cursive;
+  font-family: 'Pangolin', cursive;
+  font-family: 'Underdog', cursive;*/
+  color: var(--theme-sub-text-color);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--headers-font);
+  font-weight: 600;
+  padding-bottom: 10px;
+}
+
+p {  
+  text-align: justify;
+  padding-bottom: 30px;
+}
+
+/* Form elements don't inherit font settings by default. We need to set them manually. */
+input, textarea, button {
+  font-family: inherit;
+}
+
+#root {
+  height: 100%;
+  white-space: pre-line;
+}

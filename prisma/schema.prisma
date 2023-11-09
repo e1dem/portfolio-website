@@ -1,0 +1,90 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model artworks {
+  id        BigInt    @id @default(autoincrement())
+  title     String    @unique
+  type String
+  created   DateTime? @db.Date
+  uploaded  DateTime  @db.Date
+  images    images[]
+}
+
+model contacts {
+  id        BigInt  @id @default(autoincrement())
+  email     String
+  instagram String?
+  telegram  String?
+  pinterest String?
+}
+
+model images {
+  id         BigInt   @id @default(autoincrement())
+  data       Bytes?
+  file_name  String?
+  artwork_id BigInt
+  opacity    Float    @default(1.0)
+  z_index    Float    @default(0.0)
+  artworks   artworks @relation(fields: [artwork_id], references: [id])
+}
+
+model languages {
+  id           BigInt @id @default(autoincrement())
+  code         String @db.Char(2)
+  name         String
+  text_info    text_info[]
+  translations translations[]
+}
+
+model text_info {
+  id                   BigInt         @id @default(autoincrement())
+  original_text        String
+  original_language    languages      @relation(fields: [original_language_id], references: [id])
+  original_language_id BigInt
+  translations         translations[]
+  class_types          class_types[]
+  title_info           classes[]      @relation("title_text_info")
+  place_info           classes[]      @relation("place_text_info")
+  location_info        classes[]      @relation("location_text_info")
+  teacher_info         classes[]      @relation("teacher_text_info")
+}
+
+model translations {
+  id           BigInt    @id @default(autoincrement())
+  text_info    text_info @relation(fields: [text_info_id], references: [id])
+  text_info_id BigInt
+  language     languages @relation(fields: [language_id], references: [id])
+  language_id  BigInt
+  translation  String
+}
+
+model class_types {
+  id           BigInt    @id @default(autoincrement())
+  name_info    text_info @relation(fields: [name_info_id], references: [id])
+  name_info_id BigInt
+  classes      classes[]
+}
+
+model classes {
+  id               BigInt      @id @default(autoincrement())
+  title_info       text_info   @relation("title_text_info", fields: [title_info_id], references: [id])
+  title_info_id    BigInt
+  class_type       class_types @relation(fields: [class_type_id], references: [id])
+  class_type_id    BigInt
+  online           Boolean     @default(false)
+  start_date       DateTime    @db.Date
+  end_date         DateTime?   @db.Date
+  teacher_info     text_info   @relation("teacher_text_info", fields: [teacher_info_id], references: [id])
+  teacher_info_id  BigInt
+  place_info       text_info   @relation("place_text_info", fields: [place_info_id], references: [id])
+  place_info_id    BigInt
+  location_info    text_info?  @relation("location_text_info",fields: [location_info_id], references: [id])
+  location_info_id BigInt? 
+}

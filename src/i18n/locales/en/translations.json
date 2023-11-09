@@ -1,0 +1,66 @@
+{
+    "navbar" : {
+        "home" : "Home",
+        "about" : "About",
+        "portfolio" : "Portfolio",
+        "contacts" : "Contact"
+    },
+    "themeMenu" : {
+      "header": "Choose a theme",
+      "iconTitles" : {
+        "_comment" : "Keys should match model/Theme enum values",
+        "day" : "Day",
+        "night" : "Night",
+        "fairytale" : "Fairy tale"
+      }
+    },
+    "home" : {
+        "header" : "Welcome<p>to my world",
+        "hireButton" : "Hire me",
+        "downloadCvButton" : "Download CV"
+    },
+    "about" : {        
+        "paragraph" :"Being a self-taught artist and an engineer by profession, she is in love with drawing architecture, yet her interests lie far beyond that, and any unremarkable, at first glance, object can unexpectedly become the main character of a new piece. While she works primarily with watercolors, some sketches and paintings find reflection in ceramics, which seems very attractive to her as it makes it possible to work impressions out deeper and express them in a three-dimensional form that gives more opportunities of interaction with a viewer.",
+        "classesHeader" : "Courses and Educational Workshops",
+        "taughtByMsg" : "by"
+    },
+    "portfolio" : {
+        "description" : "Note: To play around with a 3D model or a parallax, press and hold down the left mouse key and move the mouse around.",
+        "parallax" : "Parallax Effect",
+        "3dModel" : "3D Model"
+    },
+    "contacts" : {
+        "sendEmailMsg" : "Send me a message",
+        "followOnInstagram" : "Follow me on Instagram",
+        "followOnPinterest" : "Join me on Pinterest",
+        "explanatoryMsg": "I'd love to hear from you so please get in touch for more information. Fill out the form on the right or send me a message directly via social media.",
+        "contactForm" : {
+            "name" : "Name",
+            "email" : "Email Address",
+            "subject": "Subject",
+            "message" : "Message",
+            "messagePlaceholder" : "Type your mesage here...",
+            "sendButtonMsg" : "Send",
+            "submissionMessage" : {
+              "success" : {
+                "header" : "Thank you for contacting me.",
+                "message" : "I'll get back to you as soon as possible, usually within a day."
+              },
+              "error" : {
+                "header" : "Error during sending the message.",
+                "message" : "Please, try later or contact me directly via social media."
+              }
+            }
+        }
+    },
+    "footer" : {
+      "copyright" : "©2023 EL DEM"
+    },
+    "commons" : {
+      "loading" : "Loading..."
+    },
+    "errors" : {
+      "requiredField" : "The field is required",
+      "invalidEmail" : "Invalid email"
+    }
+}

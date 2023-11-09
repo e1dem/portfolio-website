@@ -1,0 +1,21 @@
+.language_switch {
+        display: flex;
+        /* Don't display bullet points */
+        list-style: none;
+        text-align: center;
+
+        &__item {
+            button {
+                line-height: 40px;
+                margin-left: 1.5rem;
+                cursor: pointer;
+                background: transparent;
+                border: none;
+                color: var(--theme-sub-text-color);
+
+                &.active {
+                  color: var(--theme-pressed-link-color);
+                }
+            }
+        }
+}

@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  height: 50px;
+  padding: 10px 20px;
+  font-family: var(--headers-font);
+  color: var(--theme-sub-text-color);
+  background-color: var(--theme-nav-background-color);
+}
+
+.socials-buttons-wrapper {
+  margin-left: auto;
+}

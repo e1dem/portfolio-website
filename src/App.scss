@@ -1,0 +1,88 @@
+.App {
+  height: 100%;
+
+  &__navbar-wrapper {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    height: 80px;
+    width: 100%;
+  }
+
+  &__main-content-wrapper {
+    // Use relative position and not static just so that to be able use z-index
+    position: relative;
+    min-height: calc(100% - 80px - 50px);
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 30px;
+    // padding-bottom includes height of the footer 
+    // padding-bottom: calc(50px + 30px);
+    z-index: 2;
+    display:flex;
+  }
+
+  &__footer-wrapper {
+    position: relative;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    // Overlap the main content's block to fit a browser window
+    //margin-top: -50px;
+    z-index: 3;
+  }
+
+  // Small screens, laptops, desktops, large screens
+  @media only screen and (max-width: 1200px) {
+    &__main-content-wrapper {
+      padding: 30px;
+    }
+  }
+
+  // iPads, Tablets
+  @media only screen and (max-width: 768px) {
+    &__main-content-wrapper {
+      padding: 25px;
+    }
+  }
+
+  // Mobile devices
+  @media only screen and (max-width: 480px) {
+    &__main-content-wrapper {
+      padding: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    &__main-content-wrapper {
+      padding: 15px;
+    }
+  }
+}
+
+// Customising modals
+.customModalOverlay {
+  background: #444343db;
+}
+
+.customModal {
+  background: #ffffff;
+  max-width: 1200px;
+  min-width: 500px;
+  min-height: 300px;
+  //aspect-ratio: 5 / 4; - not applicable for images
+}
+
+  // Mobile devices
+  @media only screen and (max-width: 480px) {
+    .customModal {
+      max-width: 300px;
+      min-width: 300px;
+      min-height: 250px;
+    }
+  }
+
+#particles {
+  z-index: -10;
+}

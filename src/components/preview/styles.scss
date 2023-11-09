@@ -1,0 +1,71 @@
+.preview {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    height: 250px;
+    background-color: var(--theme-background-color);
+    box-shadow: 0px 0px 16px var(--theme-box-shadow);
+    border-radius: var(--rounded-div-border-radius);    
+    text-align: center;
+    position: relative;
+    
+    // preview__content-frame helps to fill all the free space
+    // of preview by content w/o pushing title out
+    &__content-frame {
+      display: flex;
+      flex: 1 1 auto;
+      height: 100%;
+      padding: 5px 5px 0px 5px;
+      // Set min-height just to avoid bug behavior https://github.com/philipwalton/flexbugs/blob/master/README.md#flexbug-1
+      min-height: 0;
+      cursor: pointer;
+    }
+
+    &__content {
+      object-fit: cover;   
+      width: 100%;
+      height: 100%;
+      vertical-align: middle;
+      border-top-left-radius: var(--rounded-div-border-radius);   
+      border-top-right-radius: var(--rounded-div-border-radius);
+    }
+
+    &__title {
+      font-size: 80%;
+      background: var(--image-title-background);
+      color: var(--image-title-color);
+      border-bottom-left-radius: var(--rounded-div-border-radius);   
+      border-bottom-right-radius: var(--rounded-div-border-radius);
+      // To display parallax more correctly
+      z-index: 100;  
+    }
+
+    &__overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;  
+      top: 0;
+      left: 0;
+      transform: scale(0);
+      transition: all 0.2s 0.1s ease-in-out;
+      background: var(--image-title-background);
+      color: var(--image-title-color);
+      /* Aligning overlay content */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &:hover .preview__overlay {
+      transform: scale(1);
+    }
+}
+
+
+// Small screens, laptops, desktops, large screens
+@media only screen and (max-width: 1200px) {
+  .preview {
+    height: 200px;
+  }
+}
